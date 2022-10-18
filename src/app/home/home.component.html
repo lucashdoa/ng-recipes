@@ -1,0 +1,26 @@
+<div>
+  <mat-grid-list cols="2" rowHeight="1:1" gutterSize="20px">
+    <mat-grid-tile colspan="1">
+      <div>
+        <h1 class="mat-display-3">
+          Let's Start <br/>
+          Cooking With <br/>
+          Popular Recipes
+        </h1>
+        <p>
+          Want to learn cook but confused how to start? <br>
+          No need to worry again!
+        </p>
+        <button mat-raised-button color="primary">GET STARTED</button>
+        <a routerLink="/signup">
+          <button mat-stroked-button style="margin-left: 15px;">SIGN UP</button>
+        </a>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="1">
+      <div [@home-img]>
+        <img src="../../assets/images/home.svg" alt="" class="home-img">
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
