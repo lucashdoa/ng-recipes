@@ -3,5 +3,16 @@
     <a routerLink="/">
       Angular Recipes
     </a>
+
+    
+    
   </span>
+  <div class="spacer"></div>
+  <nav
+    *ngIf="(isAuthenticated|async)"  
+  >
+    <a href="#" mat-button>Recipes</a>
+    <a href="#" mat-button>Shopping List</a>
+    <a mat-raised-button="accent" (click)="onLogout()">Log out</a>
+  </nav>
 </mat-toolbar>

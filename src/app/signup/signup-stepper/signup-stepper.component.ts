@@ -1,6 +1,6 @@
-import { Component} from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-signup-stepper',
@@ -8,14 +8,13 @@ import {FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./signup-stepper.component.css']
 })
 export class SignupStepperComponent {
-  name = this._formBuilder.group({
-    nameInput: ['', Validators.required],
-  });
+  @Output() createUserEvent = new EventEmitter<{email: string, password: string}>;
+
   email = this._formBuilder.group({
     emailInput: ['', Validators.required],
   });
-  thirdFormGroup = this._formBuilder.group({
-    thirdCtrl: ['', Validators.required],
+  password = this._formBuilder.group({
+    passwordInput: ['', Validators.required],
   });
   fourthFormGroup = this._formBuilder.group({
     fourthCtrl: ['', Validators.required],
@@ -25,7 +24,10 @@ export class SignupStepperComponent {
     private _formBuilder: FormBuilder
   ) {}
 
-  onRegister() {
-    console.log(this.name.value)
+  onClickRegister() {
+    this.createUserEvent.emit({
+      email: this.email.controls['emailInput'].value,
+      password: this.password.controls['passwordInput'].value
+    })
   }
 }
