@@ -17,6 +17,15 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { SignupStepperComponent } from './signup/signup-stepper/signup-stepper.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+
+import * as fromApp from './store/app.reducer';
+import { HttpClientModule } from '@angular/common/http';
+import { RecipesComponent } from './recipes/recipes.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -25,20 +34,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     HomeComponent,
     SignupComponent,
-    SignupStepperComponent
+    SignupStepperComponent,
+    LoginComponent,
+    RecipesComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatGridListModule,
     MatButtonModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    StoreModule.forRoot({app: fromApp.appReducer}),
+    StoreDevtoolsModule.instrument({logOnly: false}),
   ],
   providers: [],
   bootstrap: [AppComponent]

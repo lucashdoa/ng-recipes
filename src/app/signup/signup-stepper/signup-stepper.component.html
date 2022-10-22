@@ -1,21 +1,9 @@
 <mat-stepper orientation="vertical" [linear]="true" #stepper>
-  <mat-step [stepControl]="name">
-    <form [formGroup]="name">
-      <ng-template matStepLabel>Fill out your name</ng-template>
-      <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput placeholder="Last name, First name" formControlName="nameInput" required>
-      </mat-form-field>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
   <mat-step [stepControl]="email">
     <form [formGroup]="email">
-      <ng-template matStepLabel>Fill out your email address</ng-template>
+      <ng-template matStepLabel>Fill out your E-mail address</ng-template>
       <mat-form-field appearance="fill">
-        <mat-label>Address</mat-label>
+        <mat-label>E-mail Address</mat-label>
         <input matInput formControlName="emailInput" placeholder="youremail@address.com"
                required>
       </mat-form-field>
@@ -25,12 +13,12 @@
       </div>
     </form>
   </mat-step>
-  <mat-step [stepControl]="thirdFormGroup">
-    <form [formGroup]="thirdFormGroup">
+  <mat-step [stepControl]="password">
+    <form [formGroup]="password">
       <ng-template matStepLabel>Fill out your password</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="thirdCtrl" type="password"
+        <input matInput formControlName="passwordInput" type="password"
         required>
       </mat-form-field>
       <div>
@@ -57,7 +45,7 @@
     <ng-template matStepLabel>Done</ng-template>
     <p>Perfect!</p>
     <div>
-      <button mat-raised-button color="primary" (click)="onRegister()">Register</button>
+      <button mat-raised-button color="primary" (click)="onClickRegister()">Register</button>
       <button mat-button matStepperPrevious>Back</button>
       <button mat-button (click)="stepper.reset()">Reset</button>
     </div>

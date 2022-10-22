@@ -7,7 +7,11 @@
     </mat-grid-tile>
     <mat-grid-tile colspan="1">
       <div>
-        <app-signup-stepper></app-signup-stepper>
+        <h2>Sign Up</h2>
+        <app-signup-stepper
+          (createUserEvent)="signUpUser($event)"
+        >
+        </app-signup-stepper>
       </div>
     </mat-grid-tile>
   </mat-grid-list>
